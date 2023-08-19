@@ -3,13 +3,33 @@ using System;
 
 public partial class PlayerVisuals : Node3D
 {
-	// Called when the node enters the scene tree for the first time.
+	//Inner Variables
+	Vector3 newVisualsRotation;
+
+	//Nodes References
+	CharacterBody3D Player;
+	AnimationTree AnimationTree;
+
 	public override void _Ready()
 	{
+		Player = GetNode<CharacterBody3D>("../");
+		AnimationTree = GetNode<AnimationTree>("AnimationTree");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if ( (Vector3)Player.Get("Direction") != Vector3.Zero )
+		{
+			newVisualsRotation = new Vector3()
+			{
+				X = Rotation.X,
+				Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(Player.Velocity.X, Player.Velocity.Z), 0.15f),
+				Z = Rotation.Z
+			};
+		}
+    	
+		AnimationTree.Set("parameters/BlendSpace1D/blend_position", Player.Velocity.Length() / (float)Player.Get("Speed") );
+
+		Rotation = newVisualsRotation;
 	}
 }

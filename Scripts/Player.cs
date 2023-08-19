@@ -17,20 +17,14 @@ public partial class Player : CharacterBody3D
 	float verticalInput;
 
 	//Node's References
-	Node3D Visuals;
 	Node3D SpringArmPivot;
 	Control DebuggerDisplay;
-	AnimationPlayer AnimationPlayer;
-	AnimationTree AnimationTree;
 
 	public override void _Ready()
 	{
 		//Node's Initializations
-		Visuals = GetNode<Node3D>("Visuals");
 		SpringArmPivot = GetNode<Node3D>("SpringArmPivot");
 		DebuggerDisplay = GetNode<Control>("../DebuggerDisplay");
-		AnimationPlayer = GetNode<AnimationPlayer>("Visuals/AnimationPlayer");
-		AnimationTree = GetNode<AnimationTree>("Visuals/AnimationTree");
 	}
  
 	public override void _Input(InputEvent @event)
@@ -53,22 +47,12 @@ public partial class Player : CharacterBody3D
 		{
 			velocity.X = Mathf.Lerp( velocity.X, Direction.X * Speed, 0.15f );
 			velocity.Z = Mathf.Lerp( velocity.Z, Direction.Z * Speed, 0.15f );
-			
-            Vector3 newVisualsRotation = new Vector3()
-            {
-				X = Visuals.Rotation.X,
-                Y = Mathf.LerpAngle(Visuals.Rotation.Y, Mathf.Atan2(velocity.X, velocity.Z), 0.15f),
-				Z = Visuals.Rotation.Z
-            };
-            Visuals.Rotation = newVisualsRotation;
 
 		} else {
 			velocity.X = Mathf.MoveToward(velocity.X, 0, Speed);
 			velocity.Z = Mathf.MoveToward(velocity.Z, 0, Speed);
 		}
-
-		AnimationTree.Set("parameters/BlendSpace1D/blend_position",velocity.Length() / Speed );
-
+		
 		Velocity = velocity;
 		MoveAndSlide();
 
