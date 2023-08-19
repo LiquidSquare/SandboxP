@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://duv0tqkq6o53i"]
+
+[ext_resource type="Material" uid="uid://clbromplpjcov" path="res://Resources/Materials/R_Black_Brick_Prototype_Material.tres" id="2_autgw"]
+[ext_resource type="PackedScene" uid="uid://s78n04fynqkt" path="res://Scenes/DebuggerDisplay.tscn" id="3_aihxb"]
+[ext_resource type="PackedScene" uid="uid://cm84oxrgg7sc2" path="res://Scenes/Player.tscn" id="4_b0q1s"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qehpv"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_y4kud"]
+sky_material = SubResource("ProceduralSkyMaterial_qehpv")
+
+[sub_resource type="Environment" id="Environment_n4fis"]
+background_mode = 2
+sky = SubResource("Sky_y4kud")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.713726, 0.741176, 0.784314, 1)
+fog_density = 0.001
+
+[sub_resource type="BoxMesh" id="BoxMesh_275f2"]
+material = ExtResource("2_autgw")
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64jvp"]
+size = Vector3(1000, 1, 1000)
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n4fis")
+
+[node name="BoxA" type="CSGBox3D" parent="."]
+transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, -5, 0, -5)
+
+[node name="BoxB" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, 5, 0, -4.2)
+size = Vector3(1, 1, 4)
+
+[node name="Player" parent="." instance=ExtResource("4_b0q1s")]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_275f2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_64jvp")
+
+[node name="DebuggerDisplay" parent="." instance=ExtResource("3_aihxb")]

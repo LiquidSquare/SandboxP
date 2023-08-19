@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://prpfslv440g3"]
+
+[ext_resource type="Script" path="res://Scripts/Old/Tests.cs" id="1_fu5f3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1je6p"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_oec11"]
+sky_material = SubResource("ProceduralSkyMaterial_1je6p")
+
+[sub_resource type="Environment" id="Environment_h422k"]
+background_mode = 2
+sky = SubResource("Sky_oec11")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_q1m5p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1t61"]
+
+[node name="Tests" type="Node3D"]
+script = ExtResource("1_fu5f3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h422k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Coisa" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_q1m5p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Coisa"]
+transform = Transform3D(-6.77526e-08, 0, -0.4, 0, 0.3, 0, 1.55, 0, -1.74846e-08, 0, 0, 1)
+mesh = SubResource("BoxMesh_s1t61")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 322.0
+offset_bottom = 322.0
+color = Color(0.137255, 0.137255, 0.137255, 0.545098)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
