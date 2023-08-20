@@ -27,9 +27,10 @@ public partial class PlayerVisuals : Node3D
 				Z = Rotation.Z
 			};
 		}
+		
+		Rotation = newVisualsRotation;
     	
 		AnimationTree.Set("parameters/BlendSpace1D/blend_position", Player.Velocity.Length() / (float)Player.Get("Speed") );
 
-		Rotation = newVisualsRotation;
 	}
 }
