@@ -88,6 +88,7 @@ shape = SubResource("BoxShape3D_64jvp")
 
 [node name="Player" parent="." instance=ExtResource("4_b0q1s")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
 
 [node name="DebuggerDisplay" parent="." instance=ExtResource("3_aihxb")]
 
