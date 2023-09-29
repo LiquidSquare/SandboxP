@@ -31,7 +31,7 @@ public partial class PlayerVisuals : Node3D
 			newVisualsRotation = new Vector3()
 			{
 				X = Rotation.X,
-				Y = Mathf.Atan2(Player.Velocity.X, Player.Velocity.Z) + Mathf.Pi,
+				Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(Player.Velocity.X, Player.Velocity.Z) + Mathf.Pi, 0.25f),
 				Z = Rotation.Z
 			};
 		}
