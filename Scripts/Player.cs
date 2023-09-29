@@ -9,7 +9,7 @@ public partial class Player : CharacterBody3D
 	public float Speed = 5.0f;
 	
 	//Inner Variables
-	Vector3 Direction = Vector3.Zero;
+	Vector3 Direction = Vector3.Up;
 	float Gravity = 9.8f;
 	string DebuggerText = ""; 
 
@@ -63,7 +63,7 @@ public partial class Player : CharacterBody3D
 	{
 		// Debugger
 		DebuggerText = @$"
-			Character  Rotation: { Rotation.Y }
+			Character  Rotation: X:{ Rotation.X }, Y:{ Rotation.Y }, Z:{ Rotation.Z }
 			Spring Arm Rotation: { SpringArmPivot.Rotation.Y }
 		";
 		DebuggerDisplay.GetNode<Label>("TextLabel").Text = DebuggerText;

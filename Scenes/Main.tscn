@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://duv0tqkq6o53i"]
+[gd_scene load_steps=18 format=3 uid="uid://duv0tqkq6o53i"]
 
 [ext_resource type="Material" uid="uid://clbromplpjcov" path="res://Resources/Materials/R_Black_Brick_Prototype_Material.tres" id="2_autgw"]
 [ext_resource type="PackedScene" uid="uid://s78n04fynqkt" path="res://Scenes/DebuggerDisplay.tscn" id="3_aihxb"]
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="4_5leem"]
 [ext_resource type="PackedScene" uid="uid://cm84oxrgg7sc2" path="res://Scenes/Player.tscn" id="4_b0q1s"]
+[ext_resource type="PackedScene" uid="uid://csh716owq57dv" path="res://Scenes/LookingBox.tscn" id="5_5b870"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qehpv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,6 +37,18 @@ size = Vector3(1000, 1, 1000)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tefts"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_68dvh"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0mxv"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vlq84"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6njxk"]
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -52,9 +65,6 @@ transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 
 transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, 5, 0, -4.2)
 size = Vector3(1, 1, 4)
 
-[node name="Player" parent="." instance=ExtResource("4_b0q1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Floor"]
@@ -69,10 +79,13 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_64jvp")
 
-[node name="DebuggerDisplay" parent="." instance=ExtResource("3_aihxb")]
+[node name="Player" parent="." instance=ExtResource("4_b0q1s")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="Enemy" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 22, -119)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -11)
 script = ExtResource("4_5leem")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
@@ -82,3 +95,43 @@ mesh = SubResource("CapsuleMesh_psop6")
 shape = SubResource("CapsuleShape3D_tefts")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Enemy"]
+
+[node name="TargetA" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -16)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetA"]
+mesh = SubResource("BoxMesh_68dvh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetA"]
+shape = SubResource("BoxShape3D_g0mxv")
+
+[node name="TargetB" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -16)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetB"]
+mesh = SubResource("BoxMesh_vlq84")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetB"]
+shape = SubResource("BoxShape3D_6njxk")
+
+[node name="TargetD" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetD"]
+mesh = SubResource("BoxMesh_vlq84")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetD"]
+shape = SubResource("BoxShape3D_6njxk")
+
+[node name="TargetC" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TargetC"]
+mesh = SubResource("BoxMesh_vlq84")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TargetC"]
+shape = SubResource("BoxShape3D_6njxk")
+
+[node name="DebuggerDisplay" parent="." instance=ExtResource("3_aihxb")]
+
+[node name="CSGBox3D" parent="." instance=ExtResource("5_5b870")]
