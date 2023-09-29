@@ -21,7 +21,7 @@ public partial class PlayerVisuals : Node3D
 		Player = GetNode<CharacterBody3D>("../");
 		Skeleton = GetNode<Skeleton3D>("%Skeleton3D");
 		AnimationTree = GetNode<AnimationTree>("AnimationTree");
-		TargetNode = GetParent().GetParent().GetNode<Node3D>("%Enemy");
+		TargetNode = GetParent().GetParent().GetNode<Node3D>("%TargetBoxA");
 	}
 
 	public override void _Process(double delta)
