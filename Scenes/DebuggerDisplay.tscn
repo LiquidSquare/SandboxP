@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://s78n04fynqkt"]
+[gd_scene load_steps=2 format=3 uid="uid://s78n04fynqkt"]
+
+[ext_resource type="Script" path="res://Scripts/DebuggerDisplay.cs" id="1_48syu"]
 
 [node name="DebuggerDisplay" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_48syu")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0

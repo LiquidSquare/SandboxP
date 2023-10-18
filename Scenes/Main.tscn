@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://duv0tqkq6o53i"]
+[gd_scene load_steps=18 format=3 uid="uid://duv0tqkq6o53i"]
 
 [ext_resource type="Material" uid="uid://clbromplpjcov" path="res://Resources/Materials/R_Black_Brick_Prototype_Material.tres" id="1_8h6i1"]
-[ext_resource type="PackedScene" uid="uid://s78n04fynqkt" path="res://Scenes/DebuggerDisplay.tscn" id="3_aihxb"]
 [ext_resource type="PackedScene" uid="uid://cm84oxrgg7sc2" path="res://Scenes/Player.tscn" id="4_b0q1s"]
 [ext_resource type="PackedScene" uid="uid://csa54or4tp7qh" path="res://Scenes/ObserverBox.tscn" id="5_5b870"]
 [ext_resource type="Script" path="res://Scripts/PathFollow.cs" id="5_bdf7j"]
@@ -40,6 +39,8 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6fqo"]
+
 [sub_resource type="Curve3D" id="Curve3D_idbk8"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 16.1013, 0.594069, -7.76877, 0, 0, 0, 0, 0, 0, 31.5412, 0.604827, -7.77725, 0, 0, 0, 0, 0, 0, 31.7954, 0.319751, -3.9796, 0, 0, 0, 0, 0, 0, 16.14, 0.308994, -3.973, 0, 0, 0, 0, 0, 0, 15.9632, 0.0239191, -0.179117, 0, 0, 0, 0, 0, 0, 31.9764, 0.0239182, -0.0393721, 0, 0, 0, 0, 0, 0, 32.2293, -0.271916, 3.90149, 0, 0, 0, 0, 0, 0, 15.8552, -0.288053, 3.97343, 0, 0, 0, 0, 0, 0, 15.835, -0.383966, 8.21594, 0, 0, 0, 0, 0, 0, 32.091, -0.368, 8.07722),
@@ -47,12 +48,23 @@ _data = {
 }
 point_count = 10
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxwpx"]
+
 [sub_resource type="Curve3D" id="Curve3D_15xab"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0400945, 10.8955, -0.134664, 0, 0, 0, 0, 0, 0, -0.00774331, 4.20862, -0.0518818),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_12h1m"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5, 3, 0, -2, 0, 0, 2, 0, 0, -2, 5, 0, -2, 0, 0, 2, 0, 0, 0, 3, 0, -3, 0, 0, 3, 0, 0, 4, 5, 0, 0, 0, 0, 0, 0, 0, 7, 3, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b777k"]
 
 [node name="World" type="Node3D"]
 
@@ -88,43 +100,71 @@ shape = SubResource("BoxShape3D_64jvp")
 
 [node name="Player" parent="." instance=ExtResource("4_b0q1s")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
-
-[node name="DebuggerDisplay" parent="." instance=ExtResource("3_aihxb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.8, 0, 19.5)
 
 [node name="ObserverBox" parent="." instance=ExtResource("5_5b870")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 0, 9)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+visible = false
 curve = SubResource("Curve3D_cuy71")
 
 [node name="PathFollowA" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.999986, 1.44842e-08, 0.00523145, 1.33227e-15, 1, -2.76866e-06, -0.00523145, 2.76863e-06, 0.999985, 7.30914, 0.00590611, -12.4634)
+transform = Transform3D(-0.999986, 1.44843e-08, -0.0052315, -1.33227e-15, 1, 2.76866e-06, 0.00523151, 2.76863e-06, -0.999985, 7.30914, 0.00590611, -12.4634)
 script = ExtResource("5_bdf7j")
 
 [node name="TargetBoxA" type="CSGBox3D" parent="Path3D/PathFollowA"]
 unique_name_in_owner = true
 
+[node name="Area3D" type="Area3D" parent="Path3D/PathFollowA/TargetBoxA"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollowA/TargetBoxA/Area3D"]
+shape = SubResource("BoxShape3D_x6fqo")
+
 [node name="Path3D2" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 10, -20)
+visible = false
 curve = SubResource("Curve3D_idbk8")
 
 [node name="PathFollowB" type="PathFollow3D" parent="Path3D2"]
-transform = Transform3D(-0.000549241, -0.000696765, 1, 0, 1, 0.000696765, -1, 3.82692e-07, -0.000549241, 16.1013, 0.594069, -7.76877)
+transform = Transform3D(0.000549273, -0.000696765, -1, 2.91038e-11, 1, -0.000696765, 1, 3.82685e-07, 0.000549273, 16.1013, 0.594069, -7.76877)
 script = ExtResource("5_bdf7j")
 
 [node name="TargetBoxB" type="CSGBox3D" parent="Path3D2/PathFollowB"]
 unique_name_in_owner = true
 
+[node name="Area3D" type="Area3D" parent="Path3D2/PathFollowB/TargetBoxB"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D2/PathFollowB/TargetBoxB/Area3D"]
+shape = SubResource("BoxShape3D_bxwpx")
+
 [node name="Path3D3" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -12)
+visible = false
 curve = SubResource("Curve3D_15xab")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
-transform = Transform3D(-1.19209e-07, 0.999988, 0.00483782, -0.0123798, 0.00483745, -0.999912, -0.999923, -6.00219e-05, 0.0123797, -0.0400945, 10.8955, -0.134664)
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 14, 0)
 script = ExtResource("5_bdf7j")
 
 [node name="TargetBoxC" type="CSGBox3D" parent="Path3D3/PathFollow3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, -7.27596e-12, -9.31323e-10, 0, 1, 2.81887e-10, 9.31323e-10, 1.42961e-10, 1, 1.90735e-06, -12.9998, -0.062892)
+transform = Transform3D(1, -1.45519e-11, 0, 0, 1, 2.81432e-10, 9.31323e-10, 6.09134e-10, 1, 0, 0, 0)
+
+[node name="Path3D4" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, -3, 0)
+curve = SubResource("Curve3D_12h1m")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D4"]
+transform = Transform3D(-4.37114e-08, -0.5547, -0.83205, 0, 0.83205, -0.5547, 1, -2.42467e-08, -3.63701e-08, -5, 3, 0)
+script = ExtResource("5_bdf7j")
+
+[node name="TargetBoxD" type="CSGBox3D" parent="Path3D4/PathFollow3D"]
+unique_name_in_owner = true
+visible = false
+
+[node name="Area3D" type="Area3D" parent="Path3D4/PathFollow3D/TargetBoxD"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D4/PathFollow3D/TargetBoxD/Area3D"]
+shape = SubResource("BoxShape3D_b777k")

@@ -12,7 +12,7 @@ public partial class ObserverBox : CsgBox3D
 
 	public override void _Ready()
 	{
-		TargetNode = GetNode<Node3D>("../%TargetBoxB");
+		TargetNode = GetNode<Node3D>("../%TargetBoxD");
 	}
 
 	public override void _Process(double delta)

@@ -11,20 +11,17 @@ public partial class Player : CharacterBody3D
 	//Inner Variables
 	Vector3 Direction = Vector3.Up;
 	float Gravity = 9.8f;
-	string DebuggerText = ""; 
 
 	float horizontalInput;
 	float verticalInput;
 
 	//Node's References
 	Node3D SpringArmPivot;
-	Control DebuggerDisplay;
 
 	public override void _Ready()
 	{
 		//Node's Initializations
 		SpringArmPivot = GetNode<Node3D>("SpringArmPivot");
-		DebuggerDisplay = GetNode<Control>("../DebuggerDisplay");
 	}
  
 	public override void _Input(InputEvent @event)
@@ -61,12 +58,12 @@ public partial class Player : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
-		// Debugger
-		DebuggerText = @$"
+		var debuggText = @$"
 			Character  Rotation: X:{ Rotation.X }, Y:{ Rotation.Y }, Z:{ Rotation.Z }
 			Spring Arm Rotation: { SpringArmPivot.Rotation.Y }
 		";
-		DebuggerDisplay.GetNode<Label>("TextLabel").Text = DebuggerText;
+		// Debugger
+		// DebuggerDisplay.Call("AddDebugInformation", debuggText);
 	}
 
 }
