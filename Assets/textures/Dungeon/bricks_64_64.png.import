@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp5dtt2f1nydn"
-path="res://.godot/imported/purple_brick_prototype_A.png-d56d5ebf45aebd54f450ca4e91285018.ctex"
+uid="uid://pblimcb6tu0r"
+path="res://.godot/imported/bricks_64_64.png-5a8ab4e7580d30a0500919d29f2e0395.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/purple_brick_prototype_A.png"
-dest_files=["res://.godot/imported/purple_brick_prototype_A.png-d56d5ebf45aebd54f450ca4e91285018.ctex"]
+source_file="res://Assets/textures/Dungeon/bricks_64_64.png"
+dest_files=["res://.godot/imported/bricks_64_64.png-5a8ab4e7580d30a0500919d29f2e0395.ctex"]
 
 [params]
 
