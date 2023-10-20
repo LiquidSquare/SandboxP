@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://1bi12oqfe6x8"]
 
-[ext_resource type="Texture2D" uid="uid://cgeiv5yxi0psl" path="res://Assets/textures/black_brick_prototype_A.png" id="1_fpr36"]
+[ext_resource type="Texture2D" uid="uid://cqfj30gdrx6a6" path="res://Assets/textures/Prototype Textures/orange_brick_prototype_A.png" id="1_leyu5"]
 
 [resource]
-albedo_texture = ExtResource("1_fpr36")
+albedo_texture = ExtResource("1_leyu5")
 uv1_triplanar = true
