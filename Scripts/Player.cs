@@ -21,7 +21,7 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		//Node's Initializations
-		SpringArmPivot = GetNode<Node3D>("SpringArmPivot");
+		SpringArmPivot = GetNode<Node3D>("ThirdPersonCameraComponent/SpringArmPivot");
 	}
  
 	public override void _Input(InputEvent @event)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnssdm4ctcvaf"]
+[gd_scene load_steps=10 format=3 uid="uid://cnssdm4ctcvaf"]
 
 [ext_resource type="Material" uid="uid://1bi12oqfe6x8" path="res://Resources/Materials/R_Orange_Brick_Prototype_Material.tres" id="1_fh6ph"]
 [ext_resource type="Material" uid="uid://b3hqr6saw71pm" path="res://Resources/Materials/R_White_Brick_Prototype_Material.tres" id="1_m1k3r"]
+[ext_resource type="PackedScene" uid="uid://qtgj7adkykcn" path="res://Scenes/y_bot.tscn" id="3_re3x6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tl4p0"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -59,3 +60,6 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_ofebb")
+
+[node name="YBot" parent="." instance=ExtResource("3_re3x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

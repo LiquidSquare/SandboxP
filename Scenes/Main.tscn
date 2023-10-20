@@ -98,10 +98,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_64jvp")
 
-[node name="Player" parent="." instance=ExtResource("4_b0q1s")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.8, 0, 19.5)
-
 [node name="ObserverBox" parent="." instance=ExtResource("5_5b870")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.5, 0, 9)
 
@@ -111,7 +107,7 @@ visible = false
 curve = SubResource("Curve3D_cuy71")
 
 [node name="PathFollowA" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.999986, 1.44843e-08, -0.0052315, -1.33227e-15, 1, 2.76866e-06, 0.00523151, 2.76863e-06, -0.999985, 7.30914, 0.00590611, -12.4634)
+transform = Transform3D(-0.999986, 1.44843e-08, -0.0052315, -1.33227e-15, 1, 2.76866e-06, 0.0052315, 2.76863e-06, -0.999985, 7.30914, 0.00590611, -12.4634)
 script = ExtResource("5_bdf7j")
 
 [node name="TargetBoxA" type="CSGBox3D" parent="Path3D/PathFollowA"]
@@ -168,3 +164,6 @@ visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D4/PathFollow3D/TargetBoxD/Area3D"]
 shape = SubResource("BoxShape3D_b777k")
+
+[node name="Player" parent="." instance=ExtResource("4_b0q1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -0.5, 14)
