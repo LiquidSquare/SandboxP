@@ -7,11 +7,12 @@ public partial class PlayerVisuals : Node3D
 	Vector3 newVisualsRotation;
 
 	//Nodes References
-	CharacterBody3D Player;
-	AnimationTree AnimationTree;
-	Skeleton3D Skeleton;
-	Area3D ViewArea;
-	MeshInstance3D TargetNode;
+	public AnimationTree AnimationTree;
+	public Skeleton3D Skeleton;
+	public Area3D ViewArea;
+	public MeshInstance3D TargetNode;
+	public CharacterBody3D Parent;
+	public ThirdPersonMovementComponent ThirdPersonMovementComponent;
 
 	float HorizontalTargetAngle = 0.0f;
 	float VerticalTargetAngle = 0.0f;
@@ -19,27 +20,28 @@ public partial class PlayerVisuals : Node3D
 
 	public override void _Ready()
 	{
-		Player = GetNode<CharacterBody3D>("../");
+		Parent = GetParent<CharacterBody3D>();
 		Skeleton = GetNode<Skeleton3D>("%Skeleton3D");
 		AnimationTree = GetNode<AnimationTree>("AnimationTree");
-		ViewArea = GetParent().GetNode<Area3D>("%ViewArea3DComponent");
-		TargetNode = GetParent().GetNode<MeshInstance3D>("%ViewArea3DComponent/TargetPointMeshInstance3D");
+		// ViewArea = GetParent().GetNode<Area3D>("%ViewArea3DComponent");
+		// TargetNode = GetParent().GetNode<MeshInstance3D>("%ViewArea3DComponent/TargetPointMeshInstance3D");
+		ThirdPersonMovementComponent = Parent.GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
 	}
 
 	public override void _Process(double delta)
 	{
-		if ( (Vector3)Player.Get("Direction") != Vector3.Zero )
+		if ( ThirdPersonMovementComponent.Direction != Vector3.Zero )
 		{
 			newVisualsRotation = new Vector3()
 			{
 				X = Rotation.X,
-				Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(Player.Velocity.X, Player.Velocity.Z) + Mathf.Pi, 0.25f),
+				Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(ThirdPersonMovementComponent.Velocity.X, ThirdPersonMovementComponent.Velocity.Z) + Mathf.Pi, 0.25f),
 				Z = Rotation.Z
 			};
 		}
 		Rotation = newVisualsRotation;
-    	
-		AnimationTree.Set("parameters/BlendSpace1D/blend_position", Player.Velocity.Length() / (float)Player.Get("Speed") );
+    	// (float)Player.Get("Speed")
+		AnimationTree.Set("parameters/BlendSpace1D/blend_position", ThirdPersonMovementComponent.Velocity.Length() / ThirdPersonMovementComponent.Speed );
 
 		// TODO: It will be done in the future. A bug in Godot 4.1.2 causes SetBonePoseRotation to not work.
 		// if ( (bool)ViewArea.Get("mustPointFollowTarget") )

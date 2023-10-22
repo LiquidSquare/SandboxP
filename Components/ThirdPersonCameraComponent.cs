@@ -12,8 +12,8 @@ public partial class ThirdPersonCameraComponent : Node3D
 	//Inner Variables
 	InputEventMouseMotion mouseMotion;
 
-	Node3D SpringArmPivot;
-	SpringArm3D SpringArm;
+	public Node3D SpringArmPivot;
+	public SpringArm3D SpringArm;
 
 	public override void _Ready()
 	{
