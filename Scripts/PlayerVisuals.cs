@@ -23,8 +23,8 @@ public partial class PlayerVisuals : Node3D
 		Parent = GetParent<CharacterBody3D>();
 		Skeleton = GetNode<Skeleton3D>("%Skeleton3D");
 		AnimationTree = GetNode<AnimationTree>("AnimationTree");
-		// ViewArea = GetParent().GetNode<Area3D>("%ViewArea3DComponent");
-		// TargetNode = GetParent().GetNode<MeshInstance3D>("%ViewArea3DComponent/TargetPointMeshInstance3D");
+		ViewArea = GetParent().GetNode<Area3D>("ViewArea3DComponent");
+		TargetNode = GetParent().GetNode<MeshInstance3D>("ViewArea3DComponent/TargetPointMeshInstance3D");
 		ThirdPersonMovementComponent = Parent.GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
 	}
 
@@ -40,16 +40,15 @@ public partial class PlayerVisuals : Node3D
 			};
 		}
 		Rotation = newVisualsRotation;
-    	// (float)Player.Get("Speed")
+
 		AnimationTree.Set("parameters/BlendSpace1D/blend_position", ThirdPersonMovementComponent.Velocity.Length() / ThirdPersonMovementComponent.Speed );
 
-		// TODO: It will be done in the future. A bug in Godot 4.1.2 causes SetBonePoseRotation to not work.
-		// if ( (bool)ViewArea.Get("mustPointFollowTarget") )
-		// {
-		// 	HorizontalTargetAngle = Mathf.Atan2( TargetNode.GlobalPosition.Z - Player.GlobalPosition.Z, Player.GlobalPosition.X - TargetNode.GlobalPosition.X ) + Mathf.Pi/2 - Rotation.Y;
-		// 	VerticalTargetAngle = -Mathf.Atan2( TargetNode.GlobalPosition.Z - GlobalPosition.Z, GlobalPosition.Y - TargetNode.GlobalPosition.Y ) - Mathf.Pi/2;
-		// 	Skeleton.SetBonePoseRotation(5, new Quaternion( -VerticalTargetAngle, HorizontalTargetAngle, 0, 1));
-		// }
+		if ( (bool)ViewArea.Get("mustPointFollowTarget") )
+		{
+			HorizontalTargetAngle = Mathf.Atan2( TargetNode.GlobalPosition.Z - Parent.GlobalPosition.Z, Parent.GlobalPosition.X - TargetNode.GlobalPosition.X ) + Mathf.Pi/2 - Rotation.Y;
+			VerticalTargetAngle = -Mathf.Atan2( TargetNode.GlobalPosition.Z - GlobalPosition.Z, GlobalPosition.Y - TargetNode.GlobalPosition.Y ) - Mathf.Pi/2;
+			Skeleton.SetBonePoseRotation(5, new Quaternion( -VerticalTargetAngle, HorizontalTargetAngle, 0, 1));
+		}
 
 	}
 }

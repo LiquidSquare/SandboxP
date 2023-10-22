@@ -107,7 +107,7 @@ visible = false
 curve = SubResource("Curve3D_cuy71")
 
 [node name="PathFollowA" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.999986, 1.44843e-08, -0.0052315, -1.33227e-15, 1, 2.76866e-06, 0.0052315, 2.76863e-06, -0.999985, 7.30914, 0.00590611, -12.4634)
+transform = Transform3D(-0.999986, 1.44843e-08, -0.0052315, -1.33227e-15, 1, 2.76866e-06, 0.00523151, 2.76863e-06, -0.999985, 7.30914, 0.00590611, -12.4634)
 script = ExtResource("5_bdf7j")
 
 [node name="TargetBoxA" type="CSGBox3D" parent="Path3D/PathFollowA"]
@@ -158,7 +158,6 @@ script = ExtResource("5_bdf7j")
 
 [node name="TargetBoxD" type="CSGBox3D" parent="Path3D4/PathFollow3D"]
 unique_name_in_owner = true
-visible = false
 
 [node name="Area3D" type="Area3D" parent="Path3D4/PathFollow3D/TargetBoxD"]
 
