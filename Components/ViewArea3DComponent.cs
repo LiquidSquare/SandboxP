@@ -4,12 +4,12 @@ using System;
 public partial class ViewArea3DComponent : Area3D
 {
 	PlayerVisuals ParentVisuals;
-	bool mustPointFollowTarget;
+	public bool mustPointFollowTarget;
 	MeshInstance3D TargetPoint;
 	Area3D Target;
 
-	float HorizontalTargetAngle = 0.0f;
-	float VerticalTargetAngle = 0.0f;
+	public float HorizontalTargetAngle = 0.0f;
+	public float VerticalTargetAngle = 0.0f;
 
 	public override void _Ready()
 	{
@@ -25,7 +25,6 @@ public partial class ViewArea3DComponent : Area3D
 		{
 			HorizontalTargetAngle = Mathf.Atan2( TargetPoint.GlobalPosition.Z - GlobalPosition.Z, GlobalPosition.X - TargetPoint.GlobalPosition.X ) + Mathf.Pi/2 - Rotation.Y;
 			VerticalTargetAngle = -Mathf.Atan2( TargetPoint.GlobalPosition.Z - GlobalPosition.Z, GlobalPosition.Y - TargetPoint.GlobalPosition.Y ) - Mathf.Pi/2;
-			ParentVisuals.Skeleton.SetBonePoseRotation(5, new Quaternion( -VerticalTargetAngle, HorizontalTargetAngle, 0, 1));
 		}
 	}
 
