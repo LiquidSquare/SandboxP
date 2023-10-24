@@ -49,6 +49,9 @@ public partial class ThirdPersonMovementComponent : Node3D
 			Velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 		}
 
+		Parent.Velocity = Velocity;
+		Parent.MoveAndSlide();
+
 	}
 
 }
