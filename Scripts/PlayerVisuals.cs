@@ -31,6 +31,7 @@ public partial class PlayerVisuals : Node3D
 			Skeleton.SetBonePoseRotation(5, new Quaternion( -ViewAreaComponent.VerticalTargetAngle, ViewAreaComponent.HorizontalTargetAngle, 0, 1)); //TODO: Bone id is hardset;
 		}
 
+		/* VISUALS ROTATION TO FACE MOVEMENT INPUT */
 		if ( ThirdPersonMovementComponent.Direction != Vector3.Zero )
 		{
 			newVisualsRotation = new Vector3()
@@ -39,8 +40,8 @@ public partial class PlayerVisuals : Node3D
 				Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(ThirdPersonMovementComponent.Velocity.X, ThirdPersonMovementComponent.Velocity.Z) + Mathf.Pi, 0.25f),
 				Z = Rotation.Z
 			};
+			Rotation = newVisualsRotation;
 		}
-		Rotation = newVisualsRotation;
 
 		AnimationTree.Set("parameters/BlendSpace1D/blend_position", ThirdPersonMovementComponent.Velocity.Length() / ThirdPersonMovementComponent.Speed );	
 

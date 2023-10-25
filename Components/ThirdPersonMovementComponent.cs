@@ -15,12 +15,13 @@ public partial class ThirdPersonMovementComponent : Node3D
 	public Vector3 Velocity = Vector3.Zero;
 
 	public CharacterBody3D Parent;
+
+	[Export]
 	public ThirdPersonCameraComponent ThirdPersonCamera;
 
 	public override void _Ready()
 	{
 		Parent = GetParent<CharacterBody3D>();
-		ThirdPersonCamera = Parent.GetNode<ThirdPersonCameraComponent>("ThirdPersonCameraComponent");
 	}
 
 	public override void _Input(InputEvent @event)
@@ -34,7 +35,9 @@ public partial class ThirdPersonMovementComponent : Node3D
 		Velocity = Parent.Velocity;
 
 		if(!Parent.IsOnFloor() )
+		{
 			Velocity.Y -= Gravity * (float)delta;
+		}
 		
 		Direction = Transform.Basis * new Vector3( horizontalInput, 0, verticalInput ).Normalized();
 		Direction = Direction.Rotated(Vector3.Up, ThirdPersonCamera.SpringArmPivot.Rotation.Y ); 
@@ -48,9 +51,6 @@ public partial class ThirdPersonMovementComponent : Node3D
 			Velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			Velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 		}
-
-		Parent.Velocity = Velocity;
-		Parent.MoveAndSlide();
 
 	}
 
