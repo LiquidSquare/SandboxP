@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvl1yjdyn6ho0"
-path="res://.godot/imported/cobblestone_128_128.png-e38ea624c94b760adea80132275508ba.ctex"
+path="res://.godot/imported/cobblestone_128_128.png-876ce65f64ed4d00cac76a3ce043698d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Dungeon/cobblestone_128_128.png"
-dest_files=["res://.godot/imported/cobblestone_128_128.png-e38ea624c94b760adea80132275508ba.ctex"]
+source_file="res://Assets/Textures/Dungeon/cobblestone_128_128.png"
+dest_files=["res://.godot/imported/cobblestone_128_128.png-876ce65f64ed4d00cac76a3ce043698d.ctex"]
 
 [params]
 

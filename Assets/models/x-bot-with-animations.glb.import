@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c7tmmr4jomxgl"
-path="res://.godot/imported/x-bot-with-animations.glb-5bffa4279f3094e798c133142a1cf81e.scn"
+path="res://.godot/imported/x-bot-with-animations.glb-c5598e7885d45c77d49befab42fac541.scn"
 
 [deps]
 
-source_file="res://Assets/models/x-bot-with-animations.glb"
-dest_files=["res://.godot/imported/x-bot-with-animations.glb-5bffa4279f3094e798c133142a1cf81e.scn"]
+source_file="res://Assets/Models/x-bot-with-animations.glb"
+dest_files=["res://.godot/imported/x-bot-with-animations.glb-c5598e7885d45c77d49befab42fac541.scn"]
 
 [params]
 

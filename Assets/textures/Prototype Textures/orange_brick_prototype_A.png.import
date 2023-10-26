@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqfj30gdrx6a6"
-path.s3tc="res://.godot/imported/orange_brick_prototype_A.png-83693a732f33e5f2e7edde56dac79ca8.s3tc.ctex"
+path.s3tc="res://.godot/imported/orange_brick_prototype_A.png-731970e6c90e95c1221af89182a56d8e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/Prototype Textures/orange_brick_prototype_A.png"
-dest_files=["res://.godot/imported/orange_brick_prototype_A.png-83693a732f33e5f2e7edde56dac79ca8.s3tc.ctex"]
+source_file="res://Assets/Textures/Prototype Textures/orange_brick_prototype_A.png"
+dest_files=["res://.godot/imported/orange_brick_prototype_A.png-731970e6c90e95c1221af89182a56d8e.s3tc.ctex"]
 
 [params]
 

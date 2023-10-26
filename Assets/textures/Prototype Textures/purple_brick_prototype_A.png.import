@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp5dtt2f1nydn"
-path="res://.godot/imported/purple_brick_prototype_A.png-4b1de63cee809f832ac04b6c19214776.ctex"
+path="res://.godot/imported/purple_brick_prototype_A.png-305470fadd9927face5d48cc971909d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Prototype Textures/purple_brick_prototype_A.png"
-dest_files=["res://.godot/imported/purple_brick_prototype_A.png-4b1de63cee809f832ac04b6c19214776.ctex"]
+source_file="res://Assets/Textures/Prototype Textures/purple_brick_prototype_A.png"
+dest_files=["res://.godot/imported/purple_brick_prototype_A.png-305470fadd9927face5d48cc971909d9.ctex"]
 
 [params]
 

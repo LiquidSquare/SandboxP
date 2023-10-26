@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://duv0tqkq6o53i"]
 
 [ext_resource type="Material" uid="uid://clbromplpjcov" path="res://Resources/Materials/R_Black_Brick_Prototype_Material.tres" id="1_8h6i1"]
-[ext_resource type="PackedScene" uid="uid://cm84oxrgg7sc2" path="res://Scenes/Player.tscn" id="4_b0q1s"]
-[ext_resource type="PackedScene" uid="uid://csa54or4tp7qh" path="res://Scenes/ObserverBox.tscn" id="5_5b870"]
+[ext_resource type="PackedScene" uid="uid://cm84oxrgg7sc2" path="res://Scenes/Characters/Player.tscn" id="4_b0q1s"]
+[ext_resource type="PackedScene" uid="uid://csa54or4tp7qh" path="res://Scenes/Objects/ObserverBox.tscn" id="5_5b870"]
 [ext_resource type="Script" path="res://Scripts/PathFollow.cs" id="5_bdf7j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qehpv"]

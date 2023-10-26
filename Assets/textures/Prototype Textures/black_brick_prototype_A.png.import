@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgeiv5yxi0psl"
-path.s3tc="res://.godot/imported/black_brick_prototype_A.png-403921ed8f2d4fe248d46b4119b1be4a.s3tc.ctex"
+path.s3tc="res://.godot/imported/black_brick_prototype_A.png-cb709af7642210c686dcdbfe45ceb68e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/Prototype Textures/black_brick_prototype_A.png"
-dest_files=["res://.godot/imported/black_brick_prototype_A.png-403921ed8f2d4fe248d46b4119b1be4a.s3tc.ctex"]
+source_file="res://Assets/Textures/Prototype Textures/black_brick_prototype_A.png"
+dest_files=["res://.godot/imported/black_brick_prototype_A.png-cb709af7642210c686dcdbfe45ceb68e.s3tc.ctex"]
 
 [params]
 

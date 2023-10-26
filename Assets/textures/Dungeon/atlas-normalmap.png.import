@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brddsunwfujfe"
-path="res://.godot/imported/atlas-normalmap.png-b2522ad61b0c37f32d7f9f591c12954f.ctex"
+path="res://.godot/imported/atlas-normalmap.png-52e40ad9df636650dae30a45029dfdc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/textures/Dungeon/atlas-normalmap.png"
-dest_files=["res://.godot/imported/atlas-normalmap.png-b2522ad61b0c37f32d7f9f591c12954f.ctex"]
+source_file="res://Assets/Textures/Dungeon/atlas-normalmap.png"
+dest_files=["res://.godot/imported/atlas-normalmap.png-52e40ad9df636650dae30a45029dfdc0.ctex"]
 
 [params]
 
