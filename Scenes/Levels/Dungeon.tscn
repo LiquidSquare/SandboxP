@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw65hkycqv18e"]
 
-[ext_resource type="MeshLibrary" uid="uid://b5e0e8t77evk5" path="res://Resources/MeshLibraries/duegon-tileset-mesh-library.tres" id="1_l158h"]
+[ext_resource type="MeshLibrary" uid="uid://b5e0e8t77evk5" path="res://Resources/MeshLibraries/Dungeon Tileset/duegon-tileset-mesh-library.tres" id="1_l158h"]
 [ext_resource type="PackedScene" uid="uid://cm84oxrgg7sc2" path="res://Scenes/Characters/Player.tscn" id="2_4iiev"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7cadf"]
