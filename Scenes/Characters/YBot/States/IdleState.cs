@@ -11,6 +11,13 @@ public partial class IdleState : State
 				EmitSignal( SignalName.Transitioned, this , "BoxingIdleState" );
 			if (Input.IsActionPressed("crouch"))
 				EmitSignal( SignalName.Transitioned, this , "CrouchIdleState" );
+			if (
+				Input.IsActionPressed("up") ||
+				Input.IsActionPressed("down") ||
+				Input.IsActionPressed("left") ||
+				Input.IsActionPressed("right")
+			)
+				EmitSignal( SignalName.Transitioned, this , "WalkingState" );
 		}
 	}
 

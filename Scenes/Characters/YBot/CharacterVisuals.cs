@@ -12,8 +12,10 @@ public partial class CharacterVisuals : Node3D
 	public AnimationPlayer AnimationPlayer;
 	public Skeleton3D Skeleton;
 	public CharacterBody3D Parent;
+	[Export]
 	public ThirdPersonMovementComponent ThirdPersonMovementComponent;
-	public StateMachineComponent StateMachine;
+	[Export]
+	public StateMachineComponent StateMachineComponent;
 
 	public override void _Ready()
 	{
@@ -21,18 +23,18 @@ public partial class CharacterVisuals : Node3D
 		Skeleton = GetNode<Skeleton3D>("Armature/Skeleton3D");
 		// AnimationTree = GetNode<AnimationTree>("AnimationTree");
 		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		StateMachine = GetParent<Node3D>().GetNode<StateMachineComponent>("StateMachineComponent");
-		// ThirdPersonMovementComponent = Parent.GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
+		StateMachineComponent = GetParent<Node3D>().GetNode<StateMachineComponent>("StateMachineComponent");
+		ThirdPersonMovementComponent = Parent.GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
 	}
 
 	public override void _Process(double delta)
 	{
-
 		/* ANIMATION STATE MACHINE */
-		switch(StateMachine.CurrentState.Name)
+		switch(StateMachineComponent.CurrentState.Name)
 		{
 			case "WalkingState":
 				AnimationPlayer.Play("Nla_Walking");
+				RotateVisualsToFaceMovement();
 				break;
 			case "BoxingIdleState":
 				AnimationPlayer.Play("Nla_BoxingFightIdle");
@@ -44,18 +46,20 @@ public partial class CharacterVisuals : Node3D
 				AnimationPlayer.Play("Nla_Idle");
 				break;
 		}
-
-		/* VISUALS ROTATION TO FACE MOVEMENT INPUT */
-		// if ( ThirdPersonMovementComponent.Direction != Vector3.Zero )
-		// {
-		// 	newVisualsRotation = new Vector3()
-		// 	{
-		// 		X = Rotation.X,
-		// 		Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(ThirdPersonMovementComponent.Velocity.X, ThirdPersonMovementComponent.Velocity.Z) + Mathf.Pi, 0.25f),
-		// 		Z = Rotation.Z
-		// 	};
-		// 	Rotation = newVisualsRotation;
-		// }
-
 	}
+
+    private void RotateVisualsToFaceMovement()
+    {
+        /* VISUALS ROTATION TO FACE MOVEMENT INPUT */
+		if ( ThirdPersonMovementComponent.Direction != Vector3.Zero )
+		{
+			newVisualsRotation = new Vector3()
+			{
+				X = Rotation.X,
+				Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(ThirdPersonMovementComponent.Velocity.X, ThirdPersonMovementComponent.Velocity.Z) + Mathf.Pi, 0.25f),
+				Z = Rotation.Z
+			};
+			Rotation = newVisualsRotation;
+		}
+    }
 }

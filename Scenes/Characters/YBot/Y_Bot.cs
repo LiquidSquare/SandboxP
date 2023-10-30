@@ -7,20 +7,24 @@ public partial class Y_Bot : CharacterBody3D
     /* COMPONENTS */
     private ViewArea3DComponent ViewAreaComponent;
     private ThirdPersonCameraComponent CameraComponent;
+    private StateMachineComponent StateMachineComponent;
     private ThirdPersonMovementComponent MovementComponent;
 
 	public override void _Ready()
 	{
         // ViewAreaComponent = GetNode<ViewArea3DComponent>("ViewArea3DComponent"); // TODO
-        CameraComponent = GetNode<ThirdPersonCameraComponent>("ThirdPersonCameraComponent");
-        // MovementComponent = GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
+        // CameraComponent = GetNode<ThirdPersonCameraComponent>("ThirdPersonCameraComponent");
+        StateMachineComponent = GetNode<StateMachineComponent>("StateMachineComponent");
+        MovementComponent = GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
 	}
 
     public override void _PhysicsProcess(double delta)
     {
         /* VELOCITY HANDLER FROM MOVEMENT TODO */ 
-        // Velocity = MovementComponent.Velocity;
-		// MoveAndSlide();
+        if( StateMachineComponent.CurrentState.Name == "WalkingState" ){
+            Velocity = MovementComponent.Velocity;
+            MoveAndSlide();
+        }
     }
 
 }

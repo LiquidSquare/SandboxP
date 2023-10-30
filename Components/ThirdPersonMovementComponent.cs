@@ -14,14 +14,14 @@ public partial class ThirdPersonMovementComponent : Node3D
 	public Vector3 Direction = Vector3.Up;
 	public Vector3 Velocity = Vector3.Zero;
 
-	public CharacterBody3D Parent;
+	[Export]
+	public CharacterBody3D Target;
 
 	[Export]
 	public ThirdPersonCameraComponent ThirdPersonCamera;
 
 	public override void _Ready()
 	{
-		Parent = GetParent<CharacterBody3D>();
 	}
 
 	public override void _Input(InputEvent @event)
@@ -32,9 +32,9 @@ public partial class ThirdPersonMovementComponent : Node3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Velocity = Parent.Velocity;
+		Velocity = Target.Velocity;
 
-		if(!Parent.IsOnFloor() )
+		if(!Target.IsOnFloor() )
 		{
 			Velocity.Y -= Gravity * (float)delta;
 		}
