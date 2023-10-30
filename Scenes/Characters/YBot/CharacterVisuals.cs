@@ -1,0 +1,58 @@
+using Godot;
+using System;
+
+public partial class CharacterVisuals : Node3D
+{
+	//Inner Variables
+	Vector3 newVisualsRotation;
+	float RotationSpeed = 10f;
+
+	//Nodes References
+	public AnimationTree AnimationTree;
+	public AnimationPlayer AnimationPlayer;
+	public Skeleton3D Skeleton;
+	public CharacterBody3D Parent;
+	public ThirdPersonMovementComponent ThirdPersonMovementComponent;
+	public StateMachineComponent StateMachine;
+
+	public override void _Ready()
+	{
+		Parent = GetParent<CharacterBody3D>();
+		Skeleton = GetNode<Skeleton3D>("Armature/Skeleton3D");
+		// AnimationTree = GetNode<AnimationTree>("AnimationTree");
+		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		StateMachine = GetParent<Node3D>().GetNode<StateMachineComponent>("StateMachineComponent");
+		// ThirdPersonMovementComponent = Parent.GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
+	}
+
+	public override void _Process(double delta)
+	{
+
+		/* ANIMATION STATE MACHINE */
+		switch(StateMachine.CurrentState.Name)
+		{
+			case "WalkingState":
+				AnimationPlayer.Play("Nla_Walking");
+				break;
+			case "BoxingIdleState":
+				AnimationPlayer.Play("Nla_BoxingFightIdle");
+				break;
+			case "IdleState":
+				AnimationPlayer.Play("Nla_Idle");
+				break;
+		}
+
+		/* VISUALS ROTATION TO FACE MOVEMENT INPUT */
+		// if ( ThirdPersonMovementComponent.Direction != Vector3.Zero )
+		// {
+		// 	newVisualsRotation = new Vector3()
+		// 	{
+		// 		X = Rotation.X,
+		// 		Y = Mathf.LerpAngle(Rotation.Y, Mathf.Atan2(ThirdPersonMovementComponent.Velocity.X, ThirdPersonMovementComponent.Velocity.Z) + Mathf.Pi, 0.25f),
+		// 		Z = Rotation.Z
+		// 	};
+		// 	Rotation = newVisualsRotation;
+		// }
+
+	}
+}

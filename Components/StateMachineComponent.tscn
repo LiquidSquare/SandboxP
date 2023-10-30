@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkhhhmm6drmxs"]
+
+[ext_resource type="Script" path="res://Components/StateMachineComponent.cs" id="1_w8beo"]
+
+[node name="StateMachineComponent" type="Node3D"]
+script = ExtResource("1_w8beo")
