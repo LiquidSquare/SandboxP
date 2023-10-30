@@ -37,6 +37,9 @@ public partial class CharacterVisuals : Node3D
 			case "BoxingIdleState":
 				AnimationPlayer.Play("Nla_BoxingFightIdle");
 				break;
+			case "CrouchIdleState":
+				AnimationPlayer.Play("Nla_CrouchIdle");
+				break;
 			case "IdleState":
 				AnimationPlayer.Play("Nla_Idle");
 				break;

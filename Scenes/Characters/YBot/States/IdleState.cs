@@ -8,10 +8,9 @@ public partial class IdleState : State
 		if(@event is InputEventKey)
 		{
 			if (Input.IsActionPressed("unsheath"))
-			{ 
-				GD.Print("");
 				EmitSignal( SignalName.Transitioned, this , "BoxingIdleState" );
-			}
+			if (Input.IsActionPressed("crouch"))
+				EmitSignal( SignalName.Transitioned, this , "CrouchIdleState" );
 		}
 	}
 
