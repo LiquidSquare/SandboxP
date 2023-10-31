@@ -16,15 +16,17 @@ public partial class CharacterVisuals : Node3D
 	public ThirdPersonMovementComponent ThirdPersonMovementComponent;
 	[Export]
 	public StateMachineComponent StateMachineComponent;
+	public AnimationNodeStateMachinePlayback StateMachinePlayback;
 
 	public override void _Ready()
 	{
 		Parent = GetParent<CharacterBody3D>();
 		Skeleton = GetNode<Skeleton3D>("Armature/Skeleton3D");
-		// AnimationTree = GetNode<AnimationTree>("AnimationTree");
+		AnimationTree = GetNode<AnimationTree>("AnimationTree");
 		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		StateMachineComponent = GetParent<Node3D>().GetNode<StateMachineComponent>("StateMachineComponent");
 		ThirdPersonMovementComponent = Parent.GetNode<ThirdPersonMovementComponent>("ThirdPersonMovementComponent");
+		StateMachinePlayback = (AnimationNodeStateMachinePlayback)AnimationTree.Get("parameters/playback");
 	}
 
 	public override void _Process(double delta)
@@ -33,17 +35,17 @@ public partial class CharacterVisuals : Node3D
 		switch(StateMachineComponent.CurrentState.Name)
 		{
 			case "WalkingState":
-				AnimationPlayer.Play("Nla_Walking");
+				StateMachinePlayback.Travel("Nla_Walking");
 				RotateVisualsToFaceMovement();
 				break;
 			case "BoxingIdleState":
-				AnimationPlayer.Play("Nla_BoxingFightIdle");
+				StateMachinePlayback.Travel("Nla_BoxingFightIdle");
 				break;
 			case "CrouchIdleState":
-				AnimationPlayer.Play("Nla_CrouchIdle");
+			StateMachinePlayback.Travel("Nla_CrouchIdle");
 				break;
 			case "IdleState":
-				AnimationPlayer.Play("Nla_Idle");
+				StateMachinePlayback.Travel("Nla_Idle");
 				break;
 		}
 	}

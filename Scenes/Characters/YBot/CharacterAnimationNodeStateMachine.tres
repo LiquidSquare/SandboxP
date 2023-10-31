@@ -1,0 +1,46 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=12 format=3 uid="uid://cuoxykgqpstsb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4llss"]
+animation = &"Nla_BoxingFightIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lh7ga"]
+animation = &"Nla_CrouchIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xpalo"]
+animation = &"Nla_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbiy2"]
+animation = &"Nla_Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7pook"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2yjs"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xabtq"]
+xfade_time = 0.4
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l7aww"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2cdoy"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8k8u"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fmg48"]
+xfade_time = 0.3
+
+[resource]
+states/Nla_BoxingFightIdle/node = SubResource("AnimationNodeAnimation_4llss")
+states/Nla_BoxingFightIdle/position = Vector2(400, -6)
+states/Nla_CrouchIdle/node = SubResource("AnimationNodeAnimation_lh7ga")
+states/Nla_CrouchIdle/position = Vector2(400, 209)
+states/Nla_Idle/node = SubResource("AnimationNodeAnimation_xpalo")
+states/Nla_Idle/position = Vector2(400, 100)
+states/Nla_Walking/node = SubResource("AnimationNodeAnimation_lbiy2")
+states/Nla_Walking/position = Vector2(622, 100)
+transitions = ["Start", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_7pook"), "Nla_Idle", "Nla_BoxingFightIdle", SubResource("AnimationNodeStateMachineTransition_i2yjs"), "Nla_BoxingFightIdle", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_xabtq"), "Nla_Idle", "Nla_CrouchIdle", SubResource("AnimationNodeStateMachineTransition_l7aww"), "Nla_CrouchIdle", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_2cdoy"), "Nla_Idle", "Nla_Walking", SubResource("AnimationNodeStateMachineTransition_v8k8u"), "Nla_Walking", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_fmg48")]
+graph_offset = Vector2(2, -64)
