@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=12 format=3 uid="uid://cuoxykgqpstsb"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=14 format=3 uid="uid://cuoxykgqpstsb"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4llss"]
 animation = &"Nla_BoxingFightIdle"
@@ -27,11 +27,21 @@ xfade_time = 0.3
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2cdoy"]
 xfade_time = 0.3
 
+[sub_resource type="Curve" id="Curve_6xals"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8k8u"]
-xfade_time = 0.3
+xfade_time = 0.1
+xfade_curve = SubResource("Curve_6xals")
+
+[sub_resource type="Curve" id="Curve_2y3jb"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fmg48"]
-xfade_time = 0.3
+xfade_time = 0.2
+xfade_curve = SubResource("Curve_2y3jb")
 
 [resource]
 states/Nla_BoxingFightIdle/node = SubResource("AnimationNodeAnimation_4llss")
@@ -43,4 +53,4 @@ states/Nla_Idle/position = Vector2(400, 100)
 states/Nla_Walking/node = SubResource("AnimationNodeAnimation_lbiy2")
 states/Nla_Walking/position = Vector2(622, 100)
 transitions = ["Start", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_7pook"), "Nla_Idle", "Nla_BoxingFightIdle", SubResource("AnimationNodeStateMachineTransition_i2yjs"), "Nla_BoxingFightIdle", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_xabtq"), "Nla_Idle", "Nla_CrouchIdle", SubResource("AnimationNodeStateMachineTransition_l7aww"), "Nla_CrouchIdle", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_2cdoy"), "Nla_Idle", "Nla_Walking", SubResource("AnimationNodeStateMachineTransition_v8k8u"), "Nla_Walking", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_fmg48")]
-graph_offset = Vector2(2, -64)
+graph_offset = Vector2(4, -26)
