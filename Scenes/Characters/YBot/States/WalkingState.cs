@@ -15,6 +15,8 @@ public partial class WalkingState : State
 			EmitSignal( SignalName.Transitioned, this, "BoxWalkingState" );
 		if ( Input.IsActionJustPressed("crouch")  )
 			EmitSignal( SignalName.Transitioned, this, "CrouchWalkingState" );
+		if ( Input.IsActionJustPressed("run") )
+			EmitSignal( SignalName.Transitioned, this, "RunningState" );
 	}
 
 	public void Update(double delta){}

@@ -24,7 +24,8 @@ public partial class Y_Bot : CharacterBody3D
         if( 
             StateMachineComponent.CurrentState.Name == "WalkingState" || 
             StateMachineComponent.CurrentState.Name == "BoxWalkingState" ||
-            StateMachineComponent.CurrentState.Name == "CrouchWalkingState" ){
+            StateMachineComponent.CurrentState.Name == "CrouchWalkingState" ||
+            StateMachineComponent.CurrentState.Name == "RunningState" ){
             Velocity = MovementComponent.Velocity;
             MoveAndSlide();
         }

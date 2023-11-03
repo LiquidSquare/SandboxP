@@ -11,6 +11,8 @@ public partial class RunningState : State
 	{
 		if ( releasedMovementInput() && !isHoldingAnyMovementInput() )
 			EmitSignal( SignalName.Transitioned, this , "IdleState" );
+		if ( Input.IsActionJustPressed("run") )
+			EmitSignal( SignalName.Transitioned, this , "WalkingState" );
 		if ( Input.IsActionJustPressed("unsheath")  )
 			EmitSignal( SignalName.Transitioned, this, "BoxWalkingState" );
 	}

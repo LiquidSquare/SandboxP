@@ -5,7 +5,7 @@ public partial class ThirdPersonMovementComponent : Node3D
 {
 
 	[Export]
-	public float Speed = 5.0f;
+	public float Speed = 0.0f;
 	[Export]
 	public float Gravity = 9.8f; //TODO
 
@@ -19,6 +19,8 @@ public partial class ThirdPersonMovementComponent : Node3D
 
 	[Export]
 	public ThirdPersonCameraComponent ThirdPersonCamera;
+	[Export]
+	public StateMachineComponent StateMachine;
 
 	public override void _Ready()
 	{
@@ -32,6 +34,10 @@ public partial class ThirdPersonMovementComponent : Node3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+
+		//TODO
+		Speed = StateMachine.CurrentState.Name == "RunningState" ? 4.0f : 1.9f;
+
 		Velocity = Target.Velocity;
 
 		if(!Target.IsOnFloor() )

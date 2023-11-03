@@ -36,13 +36,14 @@ public partial class CharacterVisuals : Node3D
 		{
 			case "WalkingState":
 				StateMachinePlayback.Travel("Nla_Walking");
-				RotateVisualsToFaceMovement();
+				RotateVisualsToFaceMovement(); //TODO
 				break;
 			case "BoxingIdleState":
 				StateMachinePlayback.Travel("Nla_BoxingFightIdle");
 				break;
 			case "BoxWalkingState":
 				StateMachinePlayback.Travel("Nla_BoxWalking");
+				RotateVisualsToFaceMovement(); //TODO
 				break;
 			case "CrouchIdleState":
 			StateMachinePlayback.Travel("Nla_CrouchIdle");
@@ -52,6 +53,11 @@ public partial class CharacterVisuals : Node3D
 				break;
 			case "CrouchWalkingState":
 				StateMachinePlayback.Travel("Nla_CrouchWalking");
+				RotateVisualsToFaceMovement(); //TODO
+				break;
+			case "RunningState":
+				StateMachinePlayback.Travel("Nla_Running");
+				RotateVisualsToFaceMovement(); //TODO
 				break;
 		}
 	}
