@@ -14,6 +14,8 @@ public partial class CrouchIdleState : State
 		{
 			if (Input.IsActionPressed("crouch"))
 				EmitSignal( SignalName.Transitioned, this , "IdleState" );
+			if (isHoldingAnyMovementInput())
+				EmitSignal( SignalName.Transitioned, this , "CrouchWalkingState" );
 		}
 	}
 

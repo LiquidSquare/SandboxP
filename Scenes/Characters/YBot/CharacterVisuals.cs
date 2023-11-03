@@ -31,7 +31,7 @@ public partial class CharacterVisuals : Node3D
 
 	public override void _Process(double delta)
 	{
-		/* ANIMATION STATE MACHINE */
+		/* ANIMATION STATE MACHINE */ //TODO
 		switch(StateMachineComponent.CurrentState.Name)
 		{
 			case "WalkingState":
@@ -41,11 +41,17 @@ public partial class CharacterVisuals : Node3D
 			case "BoxingIdleState":
 				StateMachinePlayback.Travel("Nla_BoxingFightIdle");
 				break;
+			case "BoxWalkingState":
+				StateMachinePlayback.Travel("Nla_BoxWalking");
+				break;
 			case "CrouchIdleState":
 			StateMachinePlayback.Travel("Nla_CrouchIdle");
 				break;
 			case "IdleState":
 				StateMachinePlayback.Travel("Nla_Idle");
+				break;
+			case "CrouchWalkingState":
+				StateMachinePlayback.Travel("Nla_CrouchWalking");
 				break;
 		}
 	}

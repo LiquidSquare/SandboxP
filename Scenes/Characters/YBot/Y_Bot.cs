@@ -21,7 +21,10 @@ public partial class Y_Bot : CharacterBody3D
     public override void _PhysicsProcess(double delta)
     {
         /* VELOCITY HANDLER FROM MOVEMENT TODO */ 
-        if( StateMachineComponent.CurrentState.Name == "WalkingState" ){
+        if( 
+            StateMachineComponent.CurrentState.Name == "WalkingState" || 
+            StateMachineComponent.CurrentState.Name == "BoxWalkingState" ||
+            StateMachineComponent.CurrentState.Name == "CrouchWalkingState" ){
             Velocity = MovementComponent.Velocity;
             MoveAndSlide();
         }

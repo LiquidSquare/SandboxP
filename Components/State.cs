@@ -16,4 +16,17 @@ public partial class State : Node3D
 	public void Update(double delta){}
 
 	public void PhysicsUpdate(double delta){}
+
+	//TODO
+	public bool releasedMovementInput() => 
+			Input.IsActionJustReleased("up")   ||
+			Input.IsActionJustReleased("down") ||
+			Input.IsActionJustReleased("left") ||
+			Input.IsActionJustReleased("right");
+	
+	public bool isHoldingAnyMovementInput() => 
+			Input.IsActionPressed("up")   ||
+			Input.IsActionPressed("down") ||
+			Input.IsActionPressed("left") ||
+			Input.IsActionPressed("right");
 }

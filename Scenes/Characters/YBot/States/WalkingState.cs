@@ -11,21 +11,14 @@ public partial class WalkingState : State
 	{
 		if ( releasedMovementInput() && !isHoldingAnyMovementInput() )
 			EmitSignal( SignalName.Transitioned, this , "IdleState" );
+		if ( Input.IsActionJustPressed("unsheath")  )
+			EmitSignal( SignalName.Transitioned, this, "BoxWalkingState" );
+		if ( Input.IsActionJustPressed("crouch")  )
+			EmitSignal( SignalName.Transitioned, this, "CrouchWalkingState" );
 	}
 
 	public void Update(double delta){}
 
 	public void PhysicsUpdate(double delta){}
-
-	private bool releasedMovementInput() => 
-			Input.IsActionJustReleased("up")   ||
-			Input.IsActionJustReleased("down") ||
-			Input.IsActionJustReleased("left") ||
-			Input.IsActionJustReleased("right");
 	
-	private bool isHoldingAnyMovementInput() => 
-			Input.IsActionPressed("up")   ||
-			Input.IsActionPressed("down") ||
-			Input.IsActionPressed("left") ||
-			Input.IsActionPressed("right");
 }
