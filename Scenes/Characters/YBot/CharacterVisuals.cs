@@ -21,7 +21,7 @@ public partial class CharacterVisuals : Node3D
 	public override void _Ready()
 	{
 		Parent = GetParent<CharacterBody3D>();
-		Skeleton = GetNode<Skeleton3D>("Armature/Skeleton3D");
+		Skeleton = GetNode<Skeleton3D>("Armature/GeneralSkeleton");
 		AnimationTree = GetNode<AnimationTree>("AnimationTree");
 		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		StateMachineComponent = GetParent<Node3D>().GetNode<StateMachineComponent>("StateMachineComponent");
