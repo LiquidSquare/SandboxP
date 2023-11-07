@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnssdm4ctcvaf"]
 
-[ext_resource type="PackedScene" uid="uid://qtgj7adkykcn" path="res://Scenes/Characters/YBot/Y_Bot.tscn" id="2_c1q6j"]
+[ext_resource type="PackedScene" uid="uid://qtgj7adkykcn" path="res://Scenes/Characters/Character/Character.tscn" id="2_c1q6j"]
 [ext_resource type="MeshLibrary" uid="uid://dlgplufbxgrid" path="res://Resources/MeshLibraries/Prototype Tileset/prototype_tileset_mesh_library.tres" id="2_plnyp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tl4p0"]
@@ -36,5 +36,5 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="YBot" parent="." instance=ExtResource("2_c1q6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="Character" parent="." instance=ExtResource("2_c1q6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)

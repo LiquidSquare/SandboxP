@@ -1,0 +1,119 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=30 format=3 uid="uid://cuoxykgqpstsb"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_usy1b"]
+animation = &"Human/Nla_BoxingFightIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lltjp"]
+animation = &"Human/Nla_Walking"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_j72r2"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftFoot", "%GeneralSkeleton:LeftLowerLeg", "%GeneralSkeleton:LeftToes", "%GeneralSkeleton:LeftUpperLeg", "%GeneralSkeleton:Neck", "%GeneralSkeleton:RightFoot", "%GeneralSkeleton:RightLowerLeg", "%GeneralSkeleton:RightToes", "%GeneralSkeleton:RightUpperLeg", "Armature/GeneralSkeleton:mixamorig_Head", "Armature/GeneralSkeleton:mixamorig_HeadTop_End", "Armature/GeneralSkeleton:mixamorig_LeftArm", "Armature/GeneralSkeleton:mixamorig_LeftForeArm", "Armature/GeneralSkeleton:mixamorig_LeftHand", "Armature/GeneralSkeleton:mixamorig_LeftHandIndex1", "Armature/GeneralSkeleton:mixamorig_LeftHandIndex2", "Armature/GeneralSkeleton:mixamorig_LeftHandIndex3", "Armature/GeneralSkeleton:mixamorig_LeftHandIndex4", "Armature/GeneralSkeleton:mixamorig_LeftHandMiddle1", "Armature/GeneralSkeleton:mixamorig_LeftHandMiddle2", "Armature/GeneralSkeleton:mixamorig_LeftHandMiddle3", "Armature/GeneralSkeleton:mixamorig_LeftHandMiddle4", "Armature/GeneralSkeleton:mixamorig_LeftHandPinky1", "Armature/GeneralSkeleton:mixamorig_LeftHandPinky2", "Armature/GeneralSkeleton:mixamorig_LeftHandPinky3", "Armature/GeneralSkeleton:mixamorig_LeftHandPinky4", "Armature/GeneralSkeleton:mixamorig_LeftHandRing1", "Armature/GeneralSkeleton:mixamorig_LeftHandRing2", "Armature/GeneralSkeleton:mixamorig_LeftHandRing3", "Armature/GeneralSkeleton:mixamorig_LeftHandRing4", "Armature/GeneralSkeleton:mixamorig_LeftHandThumb1", "Armature/GeneralSkeleton:mixamorig_LeftHandThumb2", "Armature/GeneralSkeleton:mixamorig_LeftHandThumb3", "Armature/GeneralSkeleton:mixamorig_LeftHandThumb4", "Armature/GeneralSkeleton:mixamorig_LeftShoulder", "Armature/GeneralSkeleton:mixamorig_Neck", "Armature/GeneralSkeleton:mixamorig_RightArm", "Armature/GeneralSkeleton:mixamorig_RightForeArm", "Armature/GeneralSkeleton:mixamorig_RightHand", "Armature/GeneralSkeleton:mixamorig_RightHandIndex1", "Armature/GeneralSkeleton:mixamorig_RightHandIndex2", "Armature/GeneralSkeleton:mixamorig_RightHandIndex3", "Armature/GeneralSkeleton:mixamorig_RightHandIndex4", "Armature/GeneralSkeleton:mixamorig_RightHandMiddle1", "Armature/GeneralSkeleton:mixamorig_RightHandMiddle2", "Armature/GeneralSkeleton:mixamorig_RightHandMiddle3", "Armature/GeneralSkeleton:mixamorig_RightHandMiddle4", "Armature/GeneralSkeleton:mixamorig_RightHandPinky1", "Armature/GeneralSkeleton:mixamorig_RightHandPinky2", "Armature/GeneralSkeleton:mixamorig_RightHandPinky3", "Armature/GeneralSkeleton:mixamorig_RightHandPinky4", "Armature/GeneralSkeleton:mixamorig_RightHandRing1", "Armature/GeneralSkeleton:mixamorig_RightHandRing2", "Armature/GeneralSkeleton:mixamorig_RightHandRing3", "Armature/GeneralSkeleton:mixamorig_RightHandRing4", "Armature/GeneralSkeleton:mixamorig_RightHandThumb1", "Armature/GeneralSkeleton:mixamorig_RightHandThumb2", "Armature/GeneralSkeleton:mixamorig_RightHandThumb3", "Armature/GeneralSkeleton:mixamorig_RightHandThumb4", "Armature/GeneralSkeleton:mixamorig_RightShoulder", "Armature/GeneralSkeleton:mixamorig_Spine2", "Armature/Skeleton3D:mixamorig_LeftArm", "Armature/Skeleton3D:mixamorig_LeftFoot", "Armature/Skeleton3D:mixamorig_LeftForeArm", "Armature/Skeleton3D:mixamorig_LeftHand", "Armature/Skeleton3D:mixamorig_LeftHandIndex1", "Armature/Skeleton3D:mixamorig_LeftHandIndex2", "Armature/Skeleton3D:mixamorig_LeftHandIndex3", "Armature/Skeleton3D:mixamorig_LeftHandIndex4", "Armature/Skeleton3D:mixamorig_LeftHandMiddle1", "Armature/Skeleton3D:mixamorig_LeftHandMiddle2", "Armature/Skeleton3D:mixamorig_LeftHandMiddle3", "Armature/Skeleton3D:mixamorig_LeftHandMiddle4", "Armature/Skeleton3D:mixamorig_LeftHandPinky1", "Armature/Skeleton3D:mixamorig_LeftHandPinky2", "Armature/Skeleton3D:mixamorig_LeftHandPinky3", "Armature/Skeleton3D:mixamorig_LeftHandPinky4", "Armature/Skeleton3D:mixamorig_LeftHandRing1", "Armature/Skeleton3D:mixamorig_LeftHandRing2", "Armature/Skeleton3D:mixamorig_LeftHandRing3", "Armature/Skeleton3D:mixamorig_LeftHandRing4", "Armature/Skeleton3D:mixamorig_LeftHandThumb1", "Armature/Skeleton3D:mixamorig_LeftHandThumb2", "Armature/Skeleton3D:mixamorig_LeftHandThumb3", "Armature/Skeleton3D:mixamorig_LeftHandThumb4", "Armature/Skeleton3D:mixamorig_LeftShoulder", "Armature/Skeleton3D:mixamorig_LeftToeBase", "Armature/Skeleton3D:mixamorig_Neck", "Armature/Skeleton3D:mixamorig_RightArm", "Armature/Skeleton3D:mixamorig_RightFoot", "Armature/Skeleton3D:mixamorig_RightForeArm", "Armature/Skeleton3D:mixamorig_RightHand", "Armature/Skeleton3D:mixamorig_RightHandIndex1", "Armature/Skeleton3D:mixamorig_RightHandIndex2", "Armature/Skeleton3D:mixamorig_RightHandIndex3", "Armature/Skeleton3D:mixamorig_RightHandIndex4", "Armature/Skeleton3D:mixamorig_RightHandMiddle1", "Armature/Skeleton3D:mixamorig_RightHandMiddle2", "Armature/Skeleton3D:mixamorig_RightHandMiddle3", "Armature/Skeleton3D:mixamorig_RightHandMiddle4", "Armature/Skeleton3D:mixamorig_RightHandPinky1", "Armature/Skeleton3D:mixamorig_RightHandPinky2", "Armature/Skeleton3D:mixamorig_RightHandPinky3", "Armature/Skeleton3D:mixamorig_RightHandPinky4", "Armature/Skeleton3D:mixamorig_RightHandRing1", "Armature/Skeleton3D:mixamorig_RightHandRing2", "Armature/Skeleton3D:mixamorig_RightHandRing3", "Armature/Skeleton3D:mixamorig_RightHandRing4", "Armature/Skeleton3D:mixamorig_RightHandThumb1", "Armature/Skeleton3D:mixamorig_RightHandThumb2", "Armature/Skeleton3D:mixamorig_RightHandThumb3", "Armature/Skeleton3D:mixamorig_RightHandThumb4", "Armature/Skeleton3D:mixamorig_RightShoulder", "Armature/Skeleton3D:mixamorig_RightToeBase", "Armature/Skeleton3D:mixamorig_Spine2"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mamra"]
+graph_offset = Vector2(-467, 13)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_lltjp")
+nodes/Animation/position = Vector2(-260, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_usy1b")
+"nodes/Animation 2/position" = Vector2(-280, 180)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_j72r2")
+nodes/Blend2/position = Vector2(42, 86)
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation 2", &"Blend2", 1, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4llss"]
+animation = &"Human/Nla_BoxingFightIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lh7ga"]
+animation = &"Human/Nla_CrouchIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lpj0t"]
+animation = &"Human/Nla_CrouchWalking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xpalo"]
+animation = &"Human/Nla_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2wfjm"]
+animation = &"Human/Nla_Running"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbiy2"]
+animation = &"Human/Nla_Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7pook"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2yjs"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xabtq"]
+xfade_time = 0.4
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l7aww"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2cdoy"]
+xfade_time = 0.3
+
+[sub_resource type="Curve" id="Curve_6xals"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8k8u"]
+xfade_time = 0.1
+xfade_curve = SubResource("Curve_6xals")
+
+[sub_resource type="Curve" id="Curve_2y3jb"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fmg48"]
+xfade_time = 0.2
+xfade_curve = SubResource("Curve_2y3jb")
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nrflr"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lsmwu"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8wfe3"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hp0f4"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sj4bb"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbxj6"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ym628"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l41nn"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3c3e"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7txyj"]
+xfade_time = 0.3
+
+[resource]
+states/End/position = Vector2(1360, -1)
+states/Nla_BoxWalking/node = SubResource("AnimationNodeBlendTree_mamra")
+states/Nla_BoxWalking/position = Vector2(753, -81)
+states/Nla_BoxingFightIdle/node = SubResource("AnimationNodeAnimation_4llss")
+states/Nla_BoxingFightIdle/position = Vector2(400, -81)
+states/Nla_CrouchIdle/node = SubResource("AnimationNodeAnimation_lh7ga")
+states/Nla_CrouchIdle/position = Vector2(400, 315)
+states/Nla_CrouchWalking/node = SubResource("AnimationNodeAnimation_lpj0t")
+states/Nla_CrouchWalking/position = Vector2(753, 315)
+states/Nla_Idle/node = SubResource("AnimationNodeAnimation_xpalo")
+states/Nla_Idle/position = Vector2(400, 100)
+states/Nla_Running/node = SubResource("AnimationNodeAnimation_2wfjm")
+states/Nla_Running/position = Vector2(1078, 100)
+states/Nla_Walking/node = SubResource("AnimationNodeAnimation_lbiy2")
+states/Nla_Walking/position = Vector2(753, 100)
+transitions = ["Start", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_7pook"), "Nla_Idle", "Nla_BoxingFightIdle", SubResource("AnimationNodeStateMachineTransition_i2yjs"), "Nla_BoxingFightIdle", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_xabtq"), "Nla_Idle", "Nla_CrouchIdle", SubResource("AnimationNodeStateMachineTransition_l7aww"), "Nla_CrouchIdle", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_2cdoy"), "Nla_Idle", "Nla_Walking", SubResource("AnimationNodeStateMachineTransition_v8k8u"), "Nla_Walking", "Nla_Idle", SubResource("AnimationNodeStateMachineTransition_fmg48"), "Nla_Walking", "Nla_BoxWalking", SubResource("AnimationNodeStateMachineTransition_nrflr"), "Nla_BoxWalking", "Nla_Walking", SubResource("AnimationNodeStateMachineTransition_lsmwu"), "Nla_BoxWalking", "Nla_BoxingFightIdle", SubResource("AnimationNodeStateMachineTransition_8wfe3"), "Nla_BoxingFightIdle", "Nla_BoxWalking", SubResource("AnimationNodeStateMachineTransition_hp0f4"), "Nla_Walking", "Nla_Running", SubResource("AnimationNodeStateMachineTransition_sj4bb"), "Nla_Running", "Nla_Walking", SubResource("AnimationNodeStateMachineTransition_jbxj6"), "Nla_Walking", "Nla_CrouchWalking", SubResource("AnimationNodeStateMachineTransition_ym628"), "Nla_CrouchWalking", "Nla_Walking", SubResource("AnimationNodeStateMachineTransition_l41nn"), "Nla_CrouchIdle", "Nla_CrouchWalking", SubResource("AnimationNodeStateMachineTransition_y3c3e"), "Nla_CrouchWalking", "Nla_CrouchIdle", SubResource("AnimationNodeStateMachineTransition_7txyj")]
+graph_offset = Vector2(159.151, -144)
